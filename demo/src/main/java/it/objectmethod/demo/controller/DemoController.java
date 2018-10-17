@@ -95,16 +95,19 @@ public class DemoController {
 		cb.setCountryCode(countryCode);
 		cb.setDistrict(district);
 		cb.setPopulation(Integer.parseInt(population));
-		cbr.save(cb);
-		/*if (request.getParameter("id")!=null) {
+		
+		if (request.getParameter("id")!=null) {
 			int id= Integer.parseInt(request.getParameter("id"));
 			cb.setId(id);
-			cd.modificaCitta(cb);
-			map.addAttribute("nationCode", countryCode); //TODO meglio agire così
+		}
+			/*cd.modificaCitta(cb);
+			 //TODO meglio agire così
 		}
 		else {
 			cd.insertCity(cb);
 		}*/
+		map.addAttribute("nationCode", countryCode);
+		cbr.save(cb);
 		return "forward:listacitta?nation="+countryCode; //TODO piuttosto che così
 	}
 }
